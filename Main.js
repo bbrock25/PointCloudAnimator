@@ -156,24 +156,6 @@ function render() {
 	renderer.render( scene, camera );
 }
 
-var ws = new WebSocket("ws://localhost:9001/websocket");
-ws.onmessage = function(evt){
-	var json = JSON.parse(evt.data)
-	console.log(json);
-
-}
-function DataRequester(){
-	this.RequestButton = function() {
-		console.log("requesting data!");
-		ws.send("request some data!");
-	};
-}
-window.onload = function(){
-	var text = new DataRequester();
-	var gui = new dat.GUI();
-	gui.add(text, 'RequestButton');
-}
-
 
 
 
